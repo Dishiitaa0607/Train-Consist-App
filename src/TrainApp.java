@@ -1,31 +1,23 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TrainApp {
 
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== Train Consist Management App (UC3 - HashSet) ===");
 
-        // Initialize Train Consist
-        List<String> trainConsist = new ArrayList<>();
+        // Initialize Train Consist as a HashSet
+        Set<String> trainConsist = new HashSet<>();
 
-        // Add bogies dynamically
+        // Add bogies, including duplicates
         trainConsist.add("Engine");
         trainConsist.add("Sleeper");
         trainConsist.add("AC");
+        trainConsist.add("Sleeper");  // duplicate
+        trainConsist.add("AC");       // duplicate
 
-        // Display initial bogie count
-        System.out.println("Initial bogie count: " + trainConsist.size());
-
-        // Check if Sleeper bogie exists
-        if (trainConsist.contains("Sleeper")) {
-            System.out.println("Sleeper bogie is present in the train consist.");
-        } else {
-            System.out.println("Sleeper bogie is NOT present.");
-        }
-
-        // Print final list state
-        System.out.println("Final train consist: " + trainConsist);
+        // Display the final set
+        System.out.println("Final train consist (duplicates removed automatically): " + trainConsist);
     }
 }
